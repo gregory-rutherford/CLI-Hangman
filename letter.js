@@ -1,7 +1,7 @@
 var Letter = function(letter) {
     this.letter = letter;
     this.hasBeenGuessed = false;
-    this.guessFunc = function() {
+    this.displayChar = function() {
         if (this.hasBeenGuessed === false) {
             return "_";
         } else {
@@ -14,6 +14,5 @@ var Letter = function(letter) {
         }
     }
 }  
-
 
 module.exports = Letter;
