@@ -10,10 +10,10 @@ var Letter = function (letter) {
     };
     this.correctCheck = function (guess) {
         if (guess === this.letter) {
-            this.hasBeenGuessed = true;
-            console.log("correct guess!")
-        } else {
-            console.log("Oof that is not correct!")
+            this.hasBeenGuessed = true;  
+            if (this.hasBeenGuessed === true){
+                console.log("Correct!");
+            } 
         }
     }
 }

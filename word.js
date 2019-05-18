@@ -17,7 +17,7 @@ var Word = function (word) {
     this.checker = function (guess) {
         for (var i = 0; i < this.letterObjects.length; i++) {
             this.letterObjects[i].correctCheck(guess);
-        }  
+        } 
     }
 }
 
