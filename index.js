@@ -7,7 +7,7 @@ var choices = [
     "franklin"
 ];
 
-var guessesRemaining = 8;
+var guessesRemaining = 14;
 
 playGame();
 // choose a random word from choices array, apply constructor properties, return string of characters
@@ -23,31 +23,31 @@ function playGame() {
             {
                 type: "input",
                 message: "please pick a letter",
-                name: "choice"
-            }
-        ]).then(function (user) {
+                name: "choice",
+                validate: function validateLetter(letter){
+                    var isValid = isNaN(parseFloat(letter));
+                    return isValid || "needs to be letter!";
+                    } 
+                }
+                //validate function for letters
+        ]).then(function(user) {
             gameWord.checker(user.choice);
             guessesRemaining--;
             console.log(`You have ${guessesRemaining} guesses remaining`);
-            //need to check if the user guessed wrong and console log a statement and subtract from guesses remaining
             function sanitize() {
                 gameWord.display = [];
-            }
+            };
             sanitize();
             gameWord.returnString();
             console.log(gameWord.display);
-            if (gameWord.display.includes("_")) {
+            if (gameWord.display.includes("_") & guessesRemaining >= 1) {
                 userGuess();
-            } else {
+            }  else {
                 endGame();
             }
         })
     }
 }
-
-
-
-
 
 function endGame() {
     console.log("The Game is over");
@@ -66,4 +66,3 @@ function endGame() {
             return (console.log("Ok!"));
     });
 }
-

@@ -10,12 +10,11 @@ var Letter = function (letter) {
     };
     this.correctCheck = function (guess) {
         if (guess === this.letter) {
-            this.hasBeenGuessed = true;  
-            if (this.hasBeenGuessed === true){
-                console.log("Correct!");
-            } 
+            this.hasBeenGuessed = true;
+            this.correct = false;
+        } else {
+            this.incorrect = true;
         }
     }
-}
-
+};
 module.exports = Letter;

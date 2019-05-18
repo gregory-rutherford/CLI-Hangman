@@ -2,6 +2,7 @@ var Letter = require("./letter.js");
 
 var Word = function (word) {
     this.word = word;
+    this.guessedLetters = [];
     this.display = [];
     this.letterObjects = [];
     this.letterArray = word.split("");
@@ -16,8 +17,9 @@ var Word = function (word) {
     }
     this.checker = function (guess) {
         for (var i = 0; i < this.letterObjects.length; i++) {
-            this.letterObjects[i].correctCheck(guess);
-        } 
+            var storage = this.letterObjects[i];
+            storage.correctCheck(guess);
+        }
     }
 }
 
